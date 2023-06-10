@@ -1,9 +1,14 @@
 import os
 import pandas as pd
 
-from EuropeanEateries import app
+# Get the absolute path of the current script
+current_path = os.path.dirname(os.path.abspath(__file__))
 
-DATASET_PATH = os.path.join(app.root_path, 'dataset', 'TA_restaurants_curated.csv')
+# Go one folder back
+parent_path = os.path.dirname(current_path)
+
+# Construct the relative path to the dataset file
+DATASET_PATH = os.path.join(parent_path, 'dataset/TA_restaurants_curated.csv')
 
 
 def get_label_name(string):
