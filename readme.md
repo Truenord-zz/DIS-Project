@@ -26,6 +26,10 @@ Initially you should find the .env file, it is located in the root folder of the
         DB_NAME=PharmaMarket
 
 ## Downloading the requirements:
+Before downloading the requirements, it is recommended to create a virtual environment. This can be done by running the following command in the terminal:
+
+`python -m venv /path/to/PharmaMarket`
+
 The requirements found in requirements.txt should be downloaded and installed. This can be done by running the following command in the terminal:
 
 `pip install -r requirements.txt`
