@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1>
+        About PharmaMarket
+    </h1>
+
+    <section>
+        <h2>We take pride in our commitment to quality and safety!</h2>
+        <p>
+            Rest assured that all the medications available on our platform are sourced from trusted manufacturers and suppliers,
+             complying with stringent quality standards.
+            Our team of licensed pharmacists ensures accurate dispensing, 
+             and we prioritize your privacy by maintaining strict confidentiality and secure transactions.
+        </p>
+    </section>
+
+    <section>
+        <h2>PharmaMarket is here to support your overall well-being!</h2>
+        <p>
+            Our website features a wealth of educational resources,
+             including informative articles, health tips, and expert advice to empower you to make informed decisions about your health.!
+        </p>
+    </section>
+
+    <section>
+        <h2>Customer satisfaction is at the core of everything we do!</h2>
+        <p>
+            Our friendly and knowledgeable customer support team is available to assist you with any inquiries or concerns you may have.
+             We strive to provide a seamless and personalized experience, ensuring that you receive the care and attention you deserve..
+        </p>
+    </section>
+
+    <section>
+        <h2>Same-day delivery assured!</h2>
+        <p>
+            We understand that prompt access to medications is crucial for your well-being,
+             which is why we are committed to providing fast and reliable delivery services.
+            With our same-day delivery assurance, you can have peace of mind knowing that your medications will reach your doorstep without delay.
+        </p>
+    </section>
+{% endblock %}

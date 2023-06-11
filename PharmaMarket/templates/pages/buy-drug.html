@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from "components/macros.html" import form_errors, drug_card %}
+
+{% block title %}Buy drug{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="form-wrapper">
+        <h2 style="text-align: center">Are you sure you want to buy this drug?</h2>
+        {{ drug_card(product=drug, show_checkout=False, show_restock=False) }}
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            {{ form_errors(form.submit.errors) }}
+            <div class="form--row"
+                 style="width: 80%; display: flex; justify-content: space-between; max-width: unset; margin:auto">
+                <a class="btn btn--tertiary text--gray" href="{{ url_for('Drug.drug')}}">No, go back</a>
+
+                {{ form.submit(class='btn') }}
+
+                </div>
+
+
+            
+        </form>
+    </section>
+{% endblock %}

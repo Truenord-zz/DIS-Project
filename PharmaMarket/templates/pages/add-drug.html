@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% from "components/macros.html" import form_errors %}
+
+{% block title %}Add drug{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="form-wrapper">
+        <h1>Add drug</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group" hidden>
+                {{ form.pharmacist_pk.label }}
+                {{ form.pharmacist_pk }}
+
+                {{ form_errors(form.pharmacist_pk.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.id.label }}
+                {{ form.id }}
+
+                {{ form_errors(form.id.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name }}
+
+                {{ form_errors(form.name.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.brand.label }}
+                {{ form.brand }}
+
+                {{ form_errors(form.brand.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.city.label }}
+                {{ form.city }}
+
+                {{ form_errors(form.city.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.price.label }}
+                {{ form.price }}
+
+                {{ form_errors(form.price.errors) }}
+            </div>
+
+            <div class="form-group">
+                {{ form.submit(class="btn btn--full") }}
+            </div>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from 'components/macros.html' import select_field, filter_drug_form, drug_card %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/drug.css') }}">
+{% endblock %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h2>Your orders</h2>
+    <div class="drug">
+    {% if orders|length %}
+        {% for order in orders %}
+            {{ drug_card(product=order, show_checkout=False, show_restock=False, date=order.created_at) }}
+        {% endfor %}
+    {% else %}
+        <h3 class="text--gray">Nothing to show!</h3>
+    {% endif %}
+    </div>
+{% endblock %}

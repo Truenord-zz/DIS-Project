@@ -1,0 +1,102 @@
+{% macro cta_button (class='') %}
+    <a class="btn {{ class }}" href="{{ url_for('Drug.drug') }}">
+        <span>
+            <img src="{{ url_for('static', filename='images/icons/cart.svg') }}" alt="cart" class="icon">
+            Start shopping
+        </span>
+    </a>
+{% endmacro %}
+
+
+
+
+{% macro form_errors (errors=[]) %}
+    {% for error in errors %}
+        <span class="text--red">{{ error }}</span>
+    {% endfor %}
+{% endmacro %}
+
+
+
+{% macro select_field (name='', choices=[]) %}
+    <select name="{{ name }}" id="{{ name }}" aria-label="{{ name }}">
+        <option value=null selected disabled>Choose an option...</option>
+        {% for choice in choices %}
+            <option value="{{ choice[0] }}">{{ choice[1] }}</option>
+        {% endfor %}
+        {{ form.id.options }}
+    </select>
+{% endmacro %}
+
+{% macro filter_drug_form (form=None, sold_by=True) %}
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form--row">
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                {{ form.brand.label }}
+                {{ form.brand }}
+            </div>
+
+            <div class="form-group">
+                {{ form.city.label }}
+                {{ form.city }}
+            </div>
+        </div>
+
+        <div class="form--row">
+            {% if sold_by %}
+                <div class="form-group">
+                    {{ form.sold_by.label }}
+                    {{ form.sold_by }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                {{ form.price.label }}
+                {{ form.price }}
+            </div>
+
+            {{ form.submit(class="btn") }}
+            <a href="{{ url_for('Drug.drug') }}" class="btn">Clear filters</a>
+        </div>
+    </form>
+{% endmacro %}
+
+
+{% macro drug_card (product=None, show_checkout=True, show_restock=False, date=None) %}
+    <div class="card">
+        <div class="card__info">
+            {% if date %}
+                <p>Date: {{ date }}</p>
+            {% endif %}
+            <p>Id: {{ product.id|format_data }}</p>
+            <p>Name: {{ product.name|format_data }}</p>
+            <p>Brand: {{ product.brand|format_data }}</p>
+            <p>Price: £{{ product.price }} / {{ product.unit }}</p>
+            {% if not date %}
+                <p>In stock: {{ product.available }}</p>
+                <p>Sold by: {{ product.pharmacist_name }}</p>
+            {% endif %}
+        </div>
+
+        <div class="card__action">
+            {% if show_checkout %}
+                {% if product.available %}
+                    <a href="{{ url_for('Drug.buy_drug', pk=product.drug_pk) }}">Buy</a>
+                {% endif %}
+            {% else %}
+                {% if show_restock %}
+                    {% if not product.available %}
+                        <a href="{{ url_for('Drug.restock_drug', pk=product.drug_pk) }}">Restock</a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% from "components/macros.html" import cta_button %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="home">
+        <section class="home__hero">
+            <div class="hero__left">
+                <h1>
+                    Welcome to PharmaMarket!
+                </h1>
+                <p>
+                    Discover a Wide Range of Quality Medications and Wellness Products.
+                </p>
+
+                {{ cta_button('btn--large') }}
+
+            </div>
+            <div class="hero__right">
+                <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="hero" class="hero__img">
+            </div>
+        </section>
+
+        <section class="home__info">
+            <h2 class="home__title">
+                Shop with Confidence at PharmaMarket: Secure, Transparent, and Reliable!
+            </h2>
+            <div>
+                <div class="info__text">
+                    <h3>Your Trusted Online Pharma Marketplace</h3>
+                    <p>
+                        Whether you're seeking prescription medications, over-the-counter remedies, vitamins, or personal care products,
+                         PharmaMarket is your one-stop destination.
+                          We are committed to providing you with a seamless and trusted online shopping experience,
+                           enabling you to take control of your health and well-being.
+                        <br><br>
+                        Experience the convenience and reliability of PharmaMarket.
+                         Explore our vast selection, enjoy competitive prices, and embark on a journey towards a healthier and happier life.
+                          Your health is our priority, and we are here to serve you with excellence every step of the way.
+
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/hero1.jpg') }}" alt="drug">
+            </div>
+            <div>
+                <div class="info__text">
+                    <h3>Quality and Safety</h3>
+                    <p>
+                        Our top priority is your well-being.
+                         We have partnered with reputable vendors and verified suppliers to ensure that every product available on PharmaMarket
+                          meets stringent quality standards.
+                           Rest assured that the medications and healthcare products you purchase through our platform are authentic, safe, and reliable.
+                        <br><br>
+
+                        We take your privacy and security seriously.
+                         Our platform utilizes robust encryption and secure payment gateways to safeguard your personal information.
+                          Enjoy a seamless and hassle-free shopping experience from the comfort of your own home,
+                           with options for convenient home delivery.
+
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/drug2.jpg') }}" alt="drug">
+            </div>
+            <div>
+                <div class="info__text">
+                    <h3>Convenience at Your Fingertips</h3>
+                    <p>
+                        Say goodbye to long pharmacy queues and complicated refill processes.
+                         PharmaMarket offers the convenience of online shopping, allowing you to browse, order, 
+                         and receive your medications and healthcare products right at your doorstep. 
+                         Enjoy a hassle-free experience from the comfort of your own home.
+
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/drug3.jpg') }}" alt="drug">
+            </div>
+
+            <h2 class="home__title">
+                Find Everything You Need for a Healthy Life at PharmaMarket
+            </h2>
+            <div>
+                <div class="info__text">
+                    <h3>Discover a World of Health Solutions</h3>
+                    <p>
+                        Join our growing community of satisfied customers who have experienced the convenience, 
+                        quality, and exceptional service of PharmaMarket. 
+                        Take control of your health journey today and discover a new level of well-being with our trusted online pharmacy.
+
+                        Start exploring PharmaMarket now and embark on a path to a healthier and happier life.
+                         Your health is our commitment, and we are honored to be your trusted partner on this journey.
+                        <br>
+
+                        Your satisfaction matters to us. Our dedicated customer support team is here to assist you every step of the way.
+                         Whether you have questions about products, need guidance on managing your prescriptions,
+                          or require personalized recommendations, we are always ready to help.
+
+                    </p>
+
+                    {{ cta_button('btn--large') }}
+                </div>
+                <img src="{{ url_for('static', filename='images/drug4.jpg') }}" alt="drug">
+            </div>
+        </section>
+    </div>
+{% endblock %}
